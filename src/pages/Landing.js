@@ -1,9 +1,9 @@
 import React from 'react';
 import main from '../assets/images/main-alternative.svg';
-
 import Wrapper from '../assets/wrappers/LandingPage';
 
 import { Logo } from '../components';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
@@ -21,7 +21,7 @@ const Landing = () => {
             IPhone put a bird on it readymade narwhal. Pop-up mlkshk vegan venmo, 
             yuccie food truck mustache 90's pok pok pabst. 
           </p>
-          <button className='btn btn-hero'>Login/Register</button>
+          <Link to='/register' className='btn btn-hero'>Login/Register</Link>
         </div>
         <img src={main} alt='job hunt' className='img main-img'></img>
       </div>
