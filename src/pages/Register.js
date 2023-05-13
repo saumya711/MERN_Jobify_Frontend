@@ -8,7 +8,8 @@ const initialState = {
   name: '',
   email: '',
   password: '',
-  isMember: false
+  isMember: false,
+  token: ''
 }
 
 const Register = () => {
