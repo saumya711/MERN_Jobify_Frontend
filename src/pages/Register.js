@@ -6,10 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 const initialState = {
   name: '',
-  email: '',
+  email: '', 
   password: '',
-  isMember: false,
-  token: ''
+  isMember: false
 }
 
 const Register = () => {
@@ -49,7 +48,7 @@ const Register = () => {
         navigate('/')
       }, 3000)
     }
-  },[user, navigate])
+  }, [user, navigate])
 
   return (
     <Wrapper className="full-page">
