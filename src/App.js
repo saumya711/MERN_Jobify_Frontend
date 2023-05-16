@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
 import { BrowserRouter, Route, Routes, Link} from "react-router-dom";
-import { Dashboard, Landing, Register, Error } from "./pages";
+import { Landing, Register, Error } from "./pages";
+import {
+  AddJob, 
+  AllJobs,
+  Profile,
+  SharedLayout,
+  Stats
+} from "./pages/dashboard"
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      <Route path="/" element={<div>dashboard</div>} />
       <Route path="/register" element={<Register />} />
       <Route path="/landing" element={<Landing/>} />
       <Route path="*" element={<Error />} />
