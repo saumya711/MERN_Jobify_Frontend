@@ -14,9 +14,9 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" >
+      <Route path="/" element={ <SharedLayout />} >
+        <Route index element={<Stats />} />
         <Route path='add-jobs' element={<AddJob />} />
-        <Route path='stats' element={<Stats />} />
         <Route path='all-jobs' element={<AllJobs />} />
         <Route path='profile' element={<Profile />} />
       </Route>
