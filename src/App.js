@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { BrowserRouter, Route, Routes, Link} from "react-router-dom";
-import { Landing, Register, Error } from "./pages";
+import { Landing, Register, Error, ProtectedRoute } from "./pages";
 import {
   AddJob, 
   AllJobs,
@@ -14,7 +14,11 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={ <SharedLayout />} >
+      <Route path="/" element={ 
+        <ProtectedRoute>
+          <SharedLayout />
+        </ProtectedRoute>
+      }>
         <Route index element={<Stats />} />
         <Route path='add-jobs' element={<AddJob />} />
         <Route path='all-jobs' element={<AllJobs />} />
