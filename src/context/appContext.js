@@ -24,7 +24,7 @@ const initialState = {
     showAlert: false,
     alertText: '',
     alertType: '',
-    // user: null,
+    //user: null,
     user: user ? JSON.parse(user) : null,
     token: token,
     userLocation: userLocation || '',
