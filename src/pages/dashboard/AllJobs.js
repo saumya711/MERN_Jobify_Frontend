@@ -3,7 +3,7 @@ import React from 'react'
 const AllJobs = () => {
   return (
     <h1>
-      All Job Page
+      All Jobs Page
     </h1>
   )
 }
