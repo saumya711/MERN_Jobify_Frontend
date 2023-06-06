@@ -130,7 +130,14 @@ const AppProvider = ({children}) => {
 
     return (
         <AppContext.Provider 
-            value={{ ...state, displayAlert, registerUser, loginUser, setupUser, toggleSidebar }}>
+            value={{ 
+                ...state, 
+                displayAlert, 
+                registerUser, 
+                loginUser, 
+                setupUser, 
+                toggleSidebar 
+                }}>
             {children}
         </AppContext.Provider>
     )
