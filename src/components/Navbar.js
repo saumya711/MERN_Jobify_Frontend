@@ -7,6 +7,7 @@ import Logo from './Logo';
 
 const Navbar = () => {
   const [showLogout, setShowLogout] = useState(false);
+  
   const { toggleSidebar } = useAppContext()
   return (
     <Wrapper>
