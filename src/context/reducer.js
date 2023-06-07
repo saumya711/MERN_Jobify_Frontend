@@ -11,7 +11,10 @@ import {
     SETUP_USER_SUCCESS,
     SETUP_USER_ERROR,
     TOGGLE_SIDEBAR,
-  } from "./actions"
+    LOGOUT_USER
+  } from "./actions";
+
+  import { initialState } from "./appContext";
   
   const reducer = (state, action) => {
     if (action.type === DISPLAY_ALERT) {
@@ -120,6 +123,16 @@ import {
       return { 
         ...state, 
         showSidebar: !state.showSidebar,
+      }
+    }
+
+    if (action.type === LOGOUT_USER) {
+      return { 
+        ...initialState, 
+        user: null,
+        token: null,
+        userLocation: '',
+        jobLocation: ''
       }
     }
   
