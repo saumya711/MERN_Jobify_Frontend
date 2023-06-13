@@ -2,7 +2,7 @@ import React from 'react';
 import Links from '../utils/links';
 import { NavLink } from 'react-router-dom';
 
-const NavLink = () => {
+const NavLinks = ({ toggleSidebar}) => {
   return (
     <div className='nav-links'>
         {Links.map((link) => {
@@ -25,4 +25,4 @@ const NavLink = () => {
   )
 }
 
-export default NavLink
+export default NavLinks
