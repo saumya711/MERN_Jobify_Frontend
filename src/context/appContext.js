@@ -138,13 +138,7 @@ const AppProvider = ({children}) => {
 
     const updateUser = async (currentUser) => {
         try {
-            const { data } = await axios.patch('/api/v1/auth//update-user', currentUser,
-                {
-                    headers: {
-                        Authorization: `Bearer ${state.token}`,
-                    }
-                }
-            )
+            const { data } = await axios.patch('/api/v1/auth//update-user', currentUser)
             console.log(data)
         } catch (error) {
             console.log(error.response)
