@@ -38,6 +38,9 @@ const AppContext =  React.createContext()
 const AppProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    //axios
+    axios.defaults.headers.common['Authorization'] = `Bearer ${state.token}`
+
     const displayAlert = () => {
         dispatch({ type: DISPLAY_ALERT });
         clearAlert()
