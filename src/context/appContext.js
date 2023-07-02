@@ -66,7 +66,7 @@ const AppProvider = ({children}) => {
     // request
     authFetch.interceptors.request.use(
         (config) =>{
-            config.headers.common['Authorization'] = `Bearer ${state.token}`
+            //config.headers.common['Authorization'] = `Bearer ${state.token}`
             return config
         },
         (error) =>{
@@ -169,7 +169,7 @@ const AppProvider = ({children}) => {
         removeUserFromLocalStorage()
     }
 
-    const updateUser = async (currentUser) => {
+    const updateUser = async (currentUser, alertText) => {
         dispatch({type:UPDATE_USER_BEGIN})
         try {
             const { data } = await authFetch.patch('/auth//update-user', currentUser)
@@ -177,11 +177,14 @@ const AppProvider = ({children}) => {
             const { user, location, token } = data
             dispatch({
                 type: UPDATE_USER_SUCCESS,
-                payload: { user, location, token },
+                payload: { user, location, token, alertText },
             })
             addUserToLocalStorage({ user, location, token })
         } catch (error) {
-            dispatch({ type:UPDATE_USER_ERROR, payload:{msg:error.response.data.msg}})
+            dispatch({
+                type: UPDATE_USER_ERROR,
+                payload: { msg: error.response.data.msg },
+            })
         }
         clearAlert();
     }
