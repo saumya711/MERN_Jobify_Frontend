@@ -49,7 +49,18 @@ const AppProvider = ({children}) => {
         }
     })
 
-    // request
+     // request
+     authFetch.interceptors.request.use(
+        (config) =>{
+           //config.headers.common['Authorization'] = `Bearer ${state.token}`
+            return config
+        },
+        (error) =>{
+            return Promise.reject(error)
+        }
+    )
+
+    // response
     authFetch.interceptors.response.use(
         (response) =>{
             return response
@@ -57,19 +68,8 @@ const AppProvider = ({children}) => {
         (error) =>{
             console.log(error.response)
             if(error.response.status === 401) {
-                console.log('AUTH ERROR')
+                logoutUser()
             }
-            return Promise.reject(error)
-        }
-    )
-
-    // request
-    authFetch.interceptors.request.use(
-        (config) =>{
-            //config.headers.common['Authorization'] = `Bearer ${state.token}`
-            return config
-        },
-        (error) =>{
             return Promise.reject(error)
         }
     )
@@ -181,10 +181,12 @@ const AppProvider = ({children}) => {
             })
             addUserToLocalStorage({ user, location, token })
         } catch (error) {
-            dispatch({
-                type: UPDATE_USER_ERROR,
-                payload: { msg: error.response.data.msg },
-            })
+            if(error.response.status !== 402) {
+                dispatch({
+                    type: UPDATE_USER_ERROR,
+                    payload: { msg: error.response.data.msg },
+                })
+            }
         }
         clearAlert();
     }
