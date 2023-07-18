@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import Wrapper from '../../assets/wrappers/Job';
+import { useAppContext } from '../../context/appContext';
 
 const AddJob = () => {
   return (
